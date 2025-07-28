@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список заявок</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+    <h1>Список заявок</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Клиент</th>
+                <th>Мастер</th>
+                <th>Дата</th>
+                <th>Статус</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td><a href="{% url 'order_detail' order.id %}">{{ order.id }}</a></td>
+                <td>{{ order.client_name }}</td>
+                <td>{{ order.master_name }}</td>
+                <td>{{ order.date }}</td>
+                <td>{{ order.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
